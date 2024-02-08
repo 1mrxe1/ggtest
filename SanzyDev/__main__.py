@@ -19,8 +19,8 @@ from traceback import format_exc
 from telethon import version
 from telethon.tl.alltlobjects import LAYER
 
-from SanzyDev import Sanzy, LOGS, LOOP, bot
-from SanzyDev.Sanzy import HOSTED_ON, autobot, autopilot, checking, heroku
+from SanzyDev import sanzy, LOGS, LOOP, bot
+from SanzyDev.sanzy import HOSTED_ON, autobot, autopilot, checking, heroku
 from SanzyDev.modules import ALL_MODULES
 
 
@@ -39,7 +39,7 @@ ON = '''
 async def SanzyMain():
     from config import var
 
-    await Sanzy.start()
+    await sanzy.start()
     if not var.BOTLOG_CHATID:
         await autopilot()
     if not var.BOT_TOKEN:
@@ -51,10 +51,10 @@ async def SanzyMain():
         LOGS.info(f"Telethon Version - {version.__version__} [Layer: {LAYER}]")
         LOGS.info(f"Userbot Version - {var.BOT_VER}")
         LOGS.info("[✨ BERHASIL DIAKTIFKAN! ✨]")
-        await checking(Sanzy)
-        me = await Sanzy.get_me()
+        await checking(sanzy)
+        me = await sanzy.get_me()
         bo = await bot.get_me()
-        await Sanzy.send_message(var.BOTLOG_CHATID, ON.format(var.BOT_VER, HOSTED_ON, me.id, me.first_name, bo.id, bo.first_name))
+        await sanzy.send_message(var.BOTLOG_CHATID, ON.format(var.BOT_VER, HOSTED_ON, me.id, me.first_name, bo.id, bo.first_name))
     except (ConnectionError, KeyboardInterrupt, NotImplementedError, SystemExit):
         pass
     except BaseException as e:
@@ -71,9 +71,9 @@ if __name__ == "__main__":
         sys.exit()
 
 if len(sys.argv) not in (1, 3, 4):
-    Sanzy.disconnect()
+    sanzy.disconnect()
 else:
     try:
-        Sanzy.run_until_disconnected()
+        sanzy.run_until_disconnected()
     except ConnectionError:
         pass
