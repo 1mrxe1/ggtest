@@ -3,7 +3,7 @@
 #=========× Sanzydev ×=========#
 # Izzy Ganteng
 
-FROM sanzydev/sanzy:xd
+FROM ayiinxd/ayiin:xd
 
 RUN git clone -b Sanzy-Userbot https://github.com/sanzydev/Sanzy-Userbot /home/sanzyuserbot/ \
     && chmod 777 /home/sanzyuserbot \
