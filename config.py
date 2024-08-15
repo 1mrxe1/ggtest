@@ -10,7 +10,7 @@ load_dotenv()
 
 
 DEVS = [
-    1648684650, # Sanzy
+    5310036248, # Sanzy
 ]
 
 
@@ -25,8 +25,8 @@ class Config(object):
     API_HASH = str(getenv("API_HASH") or None)
 
     # Inline bot helper
-    BOT_TOKEN = getenv("BOT_TOKEN", None)
-    BOT_USERNAME = getenv("BOT_USERNAME", None)
+    BOT_TOKEN = getenv("BOT_TOKEN", 7245814363:AAGAJrylZZ1qG34hN50-48nGLlXdBdIEpVA)
+    BOT_USERNAME = getenv("BOT_USERNAME", "uptermuxbot")
 
     OPENAI_API_KEY = getenv("OPENAI_API_KEY", None)
 
